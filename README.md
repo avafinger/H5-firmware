@@ -13,3 +13,38 @@ The goal here is to have USB camera working and the board run in a stable way.
 
 **use at your own risk**
 
+Legacy (kernel 3.10.65+) x Mainline (kernel 4.11.2)
+----------------------------------------------------
+
+Simple test with a legacy kernel (3.10.65+) versus mainline kernel (4.11.2) to see how this old kernel stacks up against modern kernel.
+
+How this simple test was conducted:
+
+- 7ziped a binary file and gathered information about CPU freq and Temp in ºC
+- legacy kernel used a 4 GB sd card, mainline used 8 GB sd card
+- Time to compress this binary file must not be considered since SD CARD performance differs
+
+
+Kernel 3.10.65+ with interactive governor
+![legacy with interactive governor](https://github.com/avafinger/H5-firmware/tree/master/img/plot_legacy_kernel_interactive.jpg)
+
+Kernel 3.10.65+ with ondemand governor
+![legacy with interactive governor](https://github.com/avafinger/H5-firmware/tree/master/img/plot_legacy_kernel_ondemand.jpg)
+
+Kernel 4.11.2 with ondemand governor
+![legacy with interactive governor](https://github.com/avafinger/H5-firmware/tree/master/img/plot_mainline_kernel_ondemand.jpg)
+
+
+Instructions to install
+-----------------------
+
+To be completed
+
+*** WIP ***
+
+History Log:
+===========
+* initial commit (readme file)
+* Updated
+* Plotting data samples
+* Instructions to install (WiP)
