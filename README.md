@@ -41,6 +41,27 @@ Kernel 4.11.2 with ondemand governor
 * plot_mainline_kernel_ondemand_governor.txt
 * plot_legacy_kernel_interactive_governor.txt
 
+USB camera Log
+--------------
+
+Conecting a 720p USB Camera gives the following log:
+
+	[  348.953880] ehci_irq: highspeed device connect
+	[  349.178887] usb 3-1: new high-speed USB device number 2 using sunxi-ehci
+	[  349.426710] usb 3-1: New USB device found, idVendor=1b71, idProduct=0056
+	[  349.426732] usb 3-1: New USB device strings: Mfr=2, Product=1, SerialNumber=0
+	[  349.426749] usb 3-1: Product: USB 2.0 Camera
+	[  349.426766] usb 3-1: Manufacturer: Sonix Technology Co., Ltd.
+	[  349.686481] uvcvideo: Found UVC 1.00 device USB 2.0 Camera (1b71:0056)
+	[  349.700509] input: USB 2.0 Camera as /devices/soc.0/1c1d000.ehci3-controller/usb3/3-1/3-1:1.0/input/input4
+	[  349.701669] usbcore: registered new interface driver uvcvideo
+	[  349.701681] USB Video Class driver (1.1.1)
+	[  349.767156] 2:3:1: cannot get freq at ep 0x84
+	[  349.786550] usbcore: registered new interface driver snd-usb-audio
+
+
+Next step is to check how to work with the camera....
+
 Instructions to install
 -----------------------
 
