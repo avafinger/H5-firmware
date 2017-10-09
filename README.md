@@ -26,13 +26,13 @@ How this simple test was conducted:
 
 
 Kernel 3.10.65+ with interactive governor
-![legacy with interactive governor](https://github.com/avafinger/H5-firmware/tree/master/img/plot_legacy_kernel_interactive.jpeg)
+![legacy with interactive governor](https://github.com/avafinger/H5-firmware/raw/master/img/plot_legacy_kernel_interactive.png)
 
 Kernel 3.10.65+ with ondemand governor
-![legacy with interactive governor](https://github.com/avafinger/H5-firmware/tree/master/img/plot_legacy_kernel_ondemand.jpeg)
+![legacy with interactive governor](https://github.com/avafinger/H5-firmware/raw/master/img/plot_legacy_kernel_ondemand.png)
 
 Kernel 4.11.2 with ondemand governor
-![legacy with interactive governor](https://github.com/avafinger/H5-firmware/tree/master/img/plot_mainline_kernel_ondemand.jpeg)
+![legacy with interactive governor](https://github.com/avafinger/H5-firmware/raw/master/img/plot_mainline_kernel_ondemand.jpeg)
 
 
 Instructions to install
