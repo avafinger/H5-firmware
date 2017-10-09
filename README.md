@@ -60,6 +60,24 @@ Conecting a 720p USB Camera gives the following log:
 	[  349.786550] usbcore: registered new interface driver snd-usb-audio
 
 
+Modules loaded:
+
+	Module                  Size  Used by
+	snd_usb_audio         130575  0
+	uvcvideo               66170  0
+	snd_usbmidi_lib        19739  1 snd_usb_audio
+	snd_hwdep               7121  1 snd_usb_audio
+	videobuf2_vmalloc       3303  1 uvcvideo
+	vfe_v4l2              778548  0
+	videobuf2_dma_contig     9798  1 vfe_v4l2
+	videobuf2_memops        2675  2 videobuf2_vmalloc,videobuf2_dma_contig
+	videobuf2_core         31309  2 uvcvideo,vfe_v4l2
+	sunxi_ir_rx             8543  0
+	vfe_io                 38940  1 vfe_v4l2
+	sunxi_keyboard          6854  0
+	ss                     34391  0
+
+
 Next step is to check how to work with the camera....
 
 Instructions to install
