@@ -78,7 +78,50 @@ Modules loaded:
 	ss                     34391  0
 
 
-Next step is to check how to work with the camera....
+Using the 720p USB camera with mjpg-streamer with this command is quite simple:
+
+	./mjpg_streamer -i "./input_uvc.so -r 1280x720 -f 30 -q 90 -n" -o "./output_http.so -w ./www"
+	MJPG Streamer Version: svn rev: 
+	 i: Using V4L2 device.: /dev/video0
+	 i: Desired Resolution: 1280 x 720
+	 i: Frames Per Second.: 30
+	 i: Format............: MJPEG
+	 o: www-folder-path...: ./www/
+	 o: HTTP TCP port.....: 8080
+	 o: username:password.: disabled
+	 o: commands..........: enabled
+
+
+Board is running smooth with 480Mhz and 44ºC and using ~4% Cpu.
+Things changed a bit when grabbing YUV and compressing to a JPEG, Cpu usage varies from 4 to 10% and one core is 100%
+I can get 12.5 FPS at web client side.
+
+	top - 02:06:42 up 24 min,  2 users,  load average: 0.12, 0.09, 0.11
+	Tasks:  93 total,   1 running,  92 sleeping,   0 stopped,   0 zombie
+	%Cpu(s):  0.0 us,  0.6 sy,  0.0 ni, 99.4 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+	KiB Mem :   479800 total,   346340 free,    34868 used,    98592 buff/cache
+	KiB Swap:        0 total,        0 free,        0 used.   416925 avail Mem 
+	
+	  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND     
+	 9066 ubuntu    20   0    7648   1676   1176 R   1.3  0.3   0:00.90 top         
+	 2057 ubuntu    20   0  318236   8268   7824 S   1.0  1.7   0:44.47 mjpg_strea+ 
+	   20 root      20   0       0      0      0 S   0.3  0.0   0:00.23 kworker/2:0 
+	    1 root      20   0    6580   3812   2376 S   0.0  0.8   0:04.30 systemd     
+	    2 root      -2   0       0      0      0 S   0.0  0.0   0:00.00 kthreadd    
+	    3 root      20   0       0      0      0 S   0.0  0.0   0:00.27 ksoftirqd/0 
+	    5 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/0:+ 
+	    6 root      20   0       0      0      0 S   0.0  0.0   0:00.40 kworker/u8+ 
+	    7 root      rt   0       0      0      0 S   0.0  0.0   0:00.01 migration/0 
+	    8 root      20   0       0      0      0 S   0.0  0.0   0:00.59 rcu_preempt 
+	    9 root      20   0       0      0      0 S   0.0  0.0   0:00.00 rcu_bh      
+	   10 root      20   0       0      0      0 S   0.0  0.0   0:00.00 rcu_sched   
+	   11 root      rt   0       0      0      0 S   0.0  0.0   0:00.01 watchdog/0  
+	   12 root      rt   0       0      0      0 S   0.0  0.0   0:00.01 watchdog/1  
+	   13 root      rt   0       0      0      0 S   0.0  0.0   0:00.01 migration/1 
+	   14 root      20   0       0      0      0 S   0.0  0.0   0:00.01 ksoftirqd/1 
+	   15 root      20   0       0      0      0 S   0.0  0.0   0:00.00 kworker/1:0 
+
+
 
 Instructions to install
 -----------------------
