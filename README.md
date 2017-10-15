@@ -122,11 +122,130 @@ I can get 12.5 FPS at web client side.
 	   15 root      20   0       0      0      0 S   0.0  0.0   0:00.00 kworker/1:0 
 
 
+Issues
+------
+
+- Shutdown
+
+
+	If you issue a shutdown command (sudo shutdown -h), the board actualy is put to a stand-by mode,
+	but is safe to cut down the power. when in stab-by mode the green led will be ON, and you can remove
+	the power cord.     
+
+
+GPIO
+====
+
+
+	The Leds turn on when you power the board (in uboot stage), and is turned off when kernel is fully loaded.
+	There are the gpio(s) where you can manipulate the two Led(s) (blue and green).
+	normal_led and standby_led are the pins to manipulate.
+
+To manipulate the leds:
+
+Type in shell: 
+
+	sudo su        
+	password: ubuntu
+
+Turn ON
+
+	echo 1 > /sys/class/gpio_sw/normal_led/data 
+        echo 1 > /sys/class/gpio_sw/standby_led/data 
+
+Turn OFF
+
+	echo 0 > /sys/class/gpio_sw/normal_led/data 
+        echo 0 > /sys/class/gpio_sw/standby_led/data 
+
 
 Instructions to install
 -----------------------
 
-To be completed
+To flash the Image to SD CARD we need a linux box and a SD card reader/writer.
+This will be done in your HOST PC.
+
+Requirements:
+
+	- We need a linux box
+	
+	- Install md5sum
+	
+	- PSU with at least 2.0A
+	
+	- Good SD CARD, 8GB minimum (find a good and trusted brand)
+	
+	- Good USB card reader (make sure you have a trusted USB card reader) or your Laptop SD CARD reader
+
+
+Rebuild our new kernel, type:
+
+
+        cat rootfs_neo2_rc1.tar.gz.0* > rootfs_neo2_rc1.tar.gz
+
+
+Check MD5 (must match with this):
+
+        md5sum boot_neo2_rc1.tar.gz 
+        5149c05cc5d9e25b19635e2892651775  boot_neo2_rc1.tar.gz
+
+and
+
+        md5sum rootfs_neo2_rc1.tar.gz
+        8034aba52437086c41045bd0b621edfb  rootfs_neo2_rc1.tar.gz
+
+
+        md5sum rootfs_nanopia64_rc2.tar.gz
+        81be98d5f36ec6d42178028c0ab05fce  rootfs_nanopia64_rc2.tar.gz
+
+
+After you insert you SD card into the SD CARD reader, we need to find the device:
+Finding your SD CARD device after inserting it, type:
+
+        dmesg|tail
+
+
+If you have a USB card reader the format would be some thing like this
+
+        dmesg|tail
+        [97286.659006] sdc: detected capacity change from 15523119104 to 0
+        [99023.137526] sd 4:0:0:0: [sdc] 30318592 512-byte logical blocks: (15.5 GB/14.4 GiB)
+        [99023.147516] sd 4:0:0:0: [sdc] No Caching mode page found
+        [99023.147521] sd 4:0:0:0: [sdc] Assuming drive cache: write through
+        [99023.162514] sd 4:0:0:0: [sdc] No Caching mode page found
+        [99023.162518] sd 4:0:0:0: [sdc] Assuming drive cache: write through
+        [99023.168535]  sdc: sdc1 sdc2
+
+If you have a lpatop SD CARD reader, the format would be something like this:
+
+
+        dmesg|tail
+        [63376.329036] mmc0: new SDHC card at address 1234
+        [63376.368234] mmcblk0: mmc0:1234 SA04G 3.67 GiB 
+        [63376.368372]  mmcblk0: p1 p2
+
+
+Flash New Image to SD CARD, type in shell:
+
+        sudo chmod +x *.sh
+        sudo ./burn_sdcard.sh /dev/sdc
+
+or
+
+        sudo chmod +x *.sh
+        sudo ./burn_sdcard.sh /dev/mmcblk0
+
+
+Wait until finish. 
+**Remove the SD CARD and boot you device with the SD CARD inserted and Enjoy!**
+
+
+First time boot:
+
+	user: ubuntu
+	pasw: ubuntu
+
+
 
 *** WIP ***
 
