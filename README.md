@@ -129,7 +129,7 @@ Issues
 
 
 	If you issue a shutdown command (sudo shutdown -h), the board actualy is put to a stand-by mode,
-	but is safe to cut down the power. when in stab-by mode the green led will be ON, and you can remove
+	but is safe to cut down the power. when in stand-by mode the green led will be ON, and you can remove
 	the power cord.     
 
 
@@ -151,12 +151,12 @@ Type in shell:
 Turn ON
 
 	echo 1 > /sys/class/gpio_sw/normal_led/data 
-        echo 1 > /sys/class/gpio_sw/standby_led/data 
+	echo 1 > /sys/class/gpio_sw/standby_led/data 
 
 Turn OFF
 
 	echo 0 > /sys/class/gpio_sw/normal_led/data 
-        echo 0 > /sys/class/gpio_sw/standby_led/data 
+	echo 0 > /sys/class/gpio_sw/standby_led/data 
 
 
 Instructions to install
@@ -194,9 +194,6 @@ and
         md5sum rootfs_neo2_rc1.tar.gz
         8034aba52437086c41045bd0b621edfb  rootfs_neo2_rc1.tar.gz
 
-
-        md5sum rootfs_nanopia64_rc2.tar.gz
-        81be98d5f36ec6d42178028c0ab05fce  rootfs_nanopia64_rc2.tar.gz
 
 
 After you insert you SD card into the SD CARD reader, we need to find the device:
