@@ -190,6 +190,13 @@ Rebuild our new kernel, type:
         cat rootfs_neo2_rc1.tar.gz.0* > rootfs_neo2_rc1.tar.gz
 
 
+Rebuild new kernel (TFT LCD support), type:
+
+
+        cat rootfs_rc2.tar.gz.0* > rootfs_rc2.tar.gz
+
+
+
 Check MD5 (must match with this):
 
         md5sum boot_neo2_rc1.tar.gz 
