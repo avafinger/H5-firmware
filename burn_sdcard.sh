@@ -109,6 +109,7 @@ sleep 2
 
 set -e
 pt_warn "Flashing $out...."
+dd if=./boot0.bin conv=notrunc bs=1k seek=8 of=$out
 dd if=./uboot.bin conv=notrunc bs=1k seek=16400 of=$out
 
 pt_info "Decompressing rootfs to $out$part"2", please wait... (takes some time)"

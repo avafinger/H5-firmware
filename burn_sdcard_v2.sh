@@ -109,6 +109,7 @@ sleep 2
 
 set -e
 pt_warn "Flashing $out...."
+dd if=./boot0.bin conv=notrunc bs=1k seek=8 of=$out
 dd if=./uboot-v2.bin conv=notrunc bs=1k seek=16400 of=$out
 
 pt_info "Decompressing rootfs to $out$part"2", please wait... (takes some time)"
@@ -117,7 +118,7 @@ sudo partprobe ${out}
 sleep 2
 sync
 sudo mount $out$part"2" erootfs
-tar -xvpzf rootfs_neo2_rc2.tar.gz -C ./erootfs --numeric-ow
+tar -xvpzf rootfs_rc2.tar.gz -C ./erootfs --numeric-ow
 sync
 sudo umount erootfs
 rm -fR erootfs
@@ -125,7 +126,7 @@ sync
 set +e
 mkdir eboot
 sudo mount $out$part"1" eboot
-tar -xvpzf boot_neo2_rc2.tar.gz -C ./eboot  --no-same-owner
+tar -xvpzf boot_rc2.tar.gz -C ./eboot  --no-same-owner
 sync
 sudo umount eboot
 rm -fR eboot
