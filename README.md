@@ -11,6 +11,12 @@ Idle Temp. is ~ 35ºC (- 45ºC after a few hours and ambient Temp- ~ 22ºC ) wit
 
 The goal here is to have USB camera working and the board run in a stable way.
 
+**New OS Image update**
+- Attempt to Support 2.8" TFT LCD (FriendlyElec) with touch
+- SPI enabled
+- small fix an optimization
+
+
 **use at your own risk**
 
 Legacy (kernel 3.10.65+) x Mainline (kernel 4.11.2)
@@ -231,6 +237,17 @@ or
 
         sudo chmod +x *.sh
         sudo ./burn_sdcard.sh /dev/mmcblk0
+
+
+Flash New Image with **FBTFT LCD** support to SD CARD, type in shell:
+
+        sudo chmod +x *.sh
+        sudo ./burn_sdcard_v2.sh /dev/sdc
+
+or
+
+        sudo chmod +x *.sh
+        sudo ./burn_sdcard_v2.sh /dev/mmcblk0
 
 
 Wait until finish. 
